@@ -5,19 +5,19 @@ from django.db.models import Sum
 # Create your models here.
 
 class Scheme(models.Model):
-    name=models.CharField(max_length=100,unique=True)
-    transaction_value=models.DecimalField(decimal_places=2,max_digits=10,default=0)
-    frequency_of_transactions=models.IntegerField(default=0)
-    vol_of_spending=models.IntegerField(default=0)
-    period=models.IntegerField(default=0)
-    loyalty_duration=models.IntegerField(default=0)
-    valid_from=models.DateField(default=date.today)
-    valid_to=models.DateField(default=date.today)
+    name                        = models.CharField(max_length=100,unique=True)
+    transaction_value           = models.DecimalField(decimal_places=2,max_digits=10,default=0)
+    frequency_of_transactions   = models.IntegerField(default=0)
+    vol_of_spending             = models.IntegerField(default=0)
+    period                      = models.IntegerField(default=0)
+    loyalty_duration            = models.IntegerField(default=0)
+    valid_from                  = models.DateField(default=date.today)
+    valid_to                    = models.DateField(default=date.today)
 
-    money=models.IntegerField(default=0)
-    points=models.IntegerField(default=0)
+    money                       = models.IntegerField(default=0)
+    points                      = models.IntegerField(default=0)
 
-    redemp_max=models.IntegerField()
+    redemp_max                  = models.IntegerField()
 
     def computeReward(self,value):
         if self.money==0:

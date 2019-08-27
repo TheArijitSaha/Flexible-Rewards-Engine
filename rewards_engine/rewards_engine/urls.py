@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from scheme_gen import views
+from scheme_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Schemes/',include('scheme_gen.urls')),
     path('', views.index,name="index"),
+    path('Schemes/',include('scheme_app.urls')),
+    path('Transaction/',include('transaction_app.urls')),
+    path('Customer/',include('customer_app.urls')),
 ]
