@@ -7,7 +7,7 @@ from customer_app.models import Customer
 
 def list_transaction(request):
     my_dict={'transact_records':Transaction.objects.order_by('time_stamp')}
-    return render(request,'scheme_gen/list_transact.html',context=my_dict)
+    return render(request,'transaction_app/list_transact.html',context=my_dict)
 
 def create_transaction(request):
     form=TransactionCreateForm()
@@ -32,4 +32,4 @@ def create_transaction(request):
             return list_transaction(request)
 
 
-    return render(request,'scheme_gen/create_transaction.html',{'form':form})
+    return render(request,'transaction_app/create_transaction.html',{'form':form})

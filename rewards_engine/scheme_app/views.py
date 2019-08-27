@@ -5,11 +5,11 @@ from scheme_app.models import Scheme
 # Create your views here.
 
 def index(request):
-    return render(request,'scheme_gen/base.html')
+    return render(request,'base.html')
 
 def list_scheme(request):
     my_dict={'scheme_records':Scheme.objects.order_by('name')}
-    return render(request,'scheme_gen/list_scheme.html',context=my_dict)
+    return render(request,'scheme_app/list_scheme.html',context=my_dict)
 
 def create_scheme(request):
     form=SchemeCreateForm()
@@ -24,4 +24,4 @@ def create_scheme(request):
             form.save()
             return list_scheme(request)
 
-    return render(request,'scheme_gen/create_scheme.html',{'form':form})
+    return render(request,'scheme_app/create_scheme.html',{'form':form})

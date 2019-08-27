@@ -6,7 +6,7 @@ from customer_app.models import Customer
 
 def list_customer(request):
     my_dict={'cust_records':Customer.objects.order_by('name')}
-    return render(request,'scheme_gen/list_customer.html',context=my_dict)
+    return render(request,'customer_app/list_customer.html',context=my_dict)
 
 def create_customer(request):
     form=CustomerCreateForm()
@@ -19,4 +19,4 @@ def create_customer(request):
             return list_customer(request)
 
 
-    return render(request,'scheme_gen/create_customer.html',{'form':form})
+    return render(request,'customer_app/create_customer.html',{'form':form})
