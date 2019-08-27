@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+{% block title_block %}
+    Scheme | Create
+{% endblock %}
+
+{% block scheme_active %}active{% endblock %}
+
+
+{% block body_block %}
+    <div class="container">
+        <h1>Scheme Generation Form</h1>
+        <form method="post">
+            {{form.as_p}}
+            {%csrf_token%}
+            <input type="submit" class="btn btn-success" value="Submit">
+        </form>
+    </div>
+{% endblock %}

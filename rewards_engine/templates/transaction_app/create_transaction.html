@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block title_block %}
+    Transaction | Create
+{% endblock %}
+
+{% block transaction_active %}active{% endblock %}
+
+{% block body_block %}
+    <div class="container">
+        <h1> Transaction Form</h1>
+        <form method="post">
+            {{form.as_p}}
+            {%csrf_token%}
+            <input type="submit" class="btn btn-success" value="Submit">
+        </form>
+    </div>
+{% endblock %}
