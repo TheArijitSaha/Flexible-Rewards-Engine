@@ -8,39 +8,47 @@
 
 
 {% block body_block %}
-    <h1>Here are your Schemes:</h1>
     {% if scheme_records%}
-        <table border="1px">
-            <tr>
-                <th>Name</th>
-                <th>Transaction Value</th>
-                <th>Frequency Of Transactions</th>
-                <th>Volume Of Spending</th>
-                <th>Period</th>
-                <th>Loyalty Duration</th>
-                <th>Valid From</th>
-                <th>Valid To</th>
-                <th>Money</th>
-                <th>Points</th>
-                <th>Redemption Max</th>
-            </tr>
-            {% for entry in scheme_records %}
-                <tr>
-                    <td>{{entry.name}}</td>
-                    <td>{{entry.transaction_value}}</td>
-                    <td>{{entry.frequency_of_transactions}}</td>
-                    <td>{{entry.vol_of_spending}}</td>
-                    <td>{{entry.period}}</td>
-                    <td>{{entry.loyalty_duration}}</td>
-                    <td>{{entry.valid_from}}</td>
-                    <td>{{entry.valid_to}}</td>
-                    <td>{{entry.money}}</td>
-                    <td>{{entry.points}}</td>
-                    <td>{{entry.redemp_max}}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <div class="container my-4">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Transaction Value</th>
+                        <th scope="col">Frequency Of Transactions</th>
+                        <th scope="col">Volume Of Spending</th>
+                        <th scope="col">Period</th>
+                        <th scope="col">Loyalty Duration</th>
+                        <th scope="col">Valid From</th>
+                        <th scope="col">Valid To</th>
+                        <th scope="col">Money</th>
+                        <th scope="col">Points</th>
+                        <th scope="col">Redemption Max</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in scheme_records %}
+                    <tr>
+                        <th scope="row">{{entry.name}}</td>
+                        <td>{{entry.transaction_value}}</td>
+                        <td>{{entry.frequency_of_transactions}}</td>
+                        <td>{{entry.vol_of_spending}}</td>
+                        <td>{{entry.period}}</td>
+                        <td>{{entry.loyalty_duration}}</td>
+                        <td>{{entry.valid_from}}</td>
+                        <td>{{entry.valid_to}}</td>
+                        <td>{{entry.money}}</td>
+                        <td>{{entry.points}}</td>
+                        <td>{{entry.redemp_max}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {%else%}
-        <h2>There are no Scheme Records!</h2>
+        <div class="jumbotron">
+            <h2 class="display-5">There are no Schemes!</h2>
+        </div>
     {%endif%}
+
 {% endblock %}

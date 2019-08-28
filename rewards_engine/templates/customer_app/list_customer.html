@@ -7,25 +7,33 @@
 {% block customer_active %}active{% endblock %}
 
 {% block body_block %}
-    <h1>Here are your Customers:</h1>
+
     {% if cust_records%}
-        <table border="1px">
-            <tr>
-                <th>Name</th>
-                <th>Date of Issue</th>
-                <th>Reward Points</th>
-                <th>Redemption Max</th>
-            </tr>
-            {% for entry in cust_records %}
-                <tr>
-                    <td>{{entry.name}}</td>
-                    <td>{{entry.date_of_issue}}</td>
-                    <td>{{entry.cur_rewards}}</td>
-                    <td>{{entry.max_red}}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <div class="container my-4">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date of Issue</th>
+                        <th scope="col">Reward Points</th>
+                        <th scope="col">Redemption Max</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in cust_records %}
+                    <tr>
+                        <td>{{entry.name}}</td>
+                        <td>{{entry.date_of_issue}}</td>
+                        <td>{{entry.cur_rewards}}</td>
+                        <td>{{entry.max_red}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {%else%}
-        <h2>There are no Customer Records!</h2>
+        <div class="jumbotron">
+            <h2 class="display-5">There are no Customers!</h2>
+        </div>
     {%endif%}
 {% endblock %}
