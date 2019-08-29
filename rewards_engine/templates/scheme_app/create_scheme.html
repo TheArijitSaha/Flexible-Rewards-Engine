@@ -6,14 +6,26 @@
 
 {% block scheme_active %}active{% endblock %}
 
-
 {% block body_block %}
     <div class="container">
-        <h1>Scheme Generation Form</h1>
+        <h3 class="display-5">Enter Scheme details:</h3>
         <form method="post">
-            {{form.as_p}}
-            {%csrf_token%}
-            <input type="submit" class="btn btn-success" value="Submit">
+            {{ form.non_field_errors }}
+            {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field.errors }}
+                <div class="form-group row">
+                    <label for="{{ field.id_for_label }}" class="col-sm-auto col-form-label"><strong>{{ field.label }}</strong></label>
+                    <div class="col">
+                        {{ field }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% csrf_token %}
+            <div class="container text-center">
+                <input type="submit" class="btn btn-success" value="Create Scheme">
+            </div>
         </form>
     </div>
 {% endblock %}
