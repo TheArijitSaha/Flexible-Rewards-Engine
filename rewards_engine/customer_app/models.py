@@ -10,4 +10,7 @@ class Customer(models.Model):
     current_rewards     = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
+        return self.name+" ["+self.str_customer_id()+"]"
+
+    def str_customer_id(self):
+        return str(self.customer_id).zfill(6)
