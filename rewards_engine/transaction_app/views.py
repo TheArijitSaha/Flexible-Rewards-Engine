@@ -22,9 +22,9 @@ def create_transaction(request):
                 rewards= max(rewards, entry.return_rewards(m))
             print("Rewards earned: "+str(rewards))
             name = m.user_name
-            rewards=rewards+Customer.objects.get(name=name).cur_rewards
-            Customer.objects.filter(name=name).update(cur_rewards=rewards)
-            print(Customer.objects.get(name=name).cur_rewards)
+            rewards=rewards+Customer.objects.get(name=name).current_rewards
+            Customer.objects.filter(name=name).update(current_rewards=rewards)
+            print(Customer.objects.get(name=name).current_rewards)
             #
             # print("FNAME: "+form.cleaned_data['first_name'])
             # print("LNAME: "+form.cleaned_data['last_name'])

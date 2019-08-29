@@ -6,4 +6,4 @@ from customer_app.models import Customer
 class CustomerCreateForm(forms.ModelForm):
     class Meta:
         model=Customer
-        exclude=("cur_rewards","max_red")
+        exclude=("current_rewards","date_of_creation","customer_id")
