@@ -5,13 +5,7 @@ from transaction_app.models import Transaction
 class TransactionCreateForm(forms.ModelForm):
     class Meta:
         model=Transaction
-        fields=['id','value','time_stamp','user_name']
-        widgets =   {
-            'id'    :   forms.TextInput(attrs={
-                'placeholder'   :   'Give ID',
-                'disabled'      :   True,
-            }),
-        }
+        fields=['value','time_stamp','user_name']
 
     def __init__(self,*args,**kwargs):
         super(TransactionCreateForm,self).__init__(*args,**kwargs)
